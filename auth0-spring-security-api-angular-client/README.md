@@ -2,7 +2,7 @@
 
 This is a companion `client` sample for the [Auth0 Spring Security API Sample](https://github.com/auth0-samples/auth0-spring-security-api-sample).
 
-Please refer to that sample and documentation to get your API Server up and running. There is no specific dependency on that implementation from a technology perspective, but both this sample has been coded as a Client for RESTful service endpoints provided by that API Server sample.
+Please refer to that sample and documentation to get your API Server up and running. There is no specific dependency on that implementation from a technology perspective, but this sample has been coded as a Client for RESTful service endpoints provided by that API Server sample.
 
 The purpose of this sample is to provide an easy to understand seed project for users wishing to combine Java Spring Security API Server with a single page application front-end.
 
@@ -22,7 +22,7 @@ In order to run the example you need to just start a server. What we suggest is 
 
 1. Install node
 1. run npm install -g serve
-1. run serve in the directory of this project.
+1. run `serve` in the directory of this project.
 
 Go to [http://localhost:3000](http://localhost:3000)
 
