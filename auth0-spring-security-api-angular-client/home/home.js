@@ -11,7 +11,9 @@ angular.module('home', ['auth0', 'toastr'])
     });
   };
 
-  fetchProfileList();
+  fetchProfileList(function () {
+    toastr.success('Data retrieved from API Server', 'Success');
+  });
   $scope.listProfiles = true;
 
   $scope.editProfile = function (id) {
@@ -24,7 +26,7 @@ angular.module('home', ['auth0', 'toastr'])
         $scope.originalProfile = angular.copy(data);
       }, function (response) {
         $scope.message = response.statusText + "\r\n";
-        if (response.data.errors !== null) {
+        if (response.data && response.data.errors !== null) {
           response.data.errors.forEach(function (error, index) {
             $scope.message += response.data.errors[index].defaultMessage + "\r\n";
           });
@@ -45,6 +47,7 @@ angular.module('home', ['auth0', 'toastr'])
     logoutButton.addClass('active');
     auth.signout();
     store.remove('profile');
+    store.remove('delegationToken');
     store.remove('token');
     $location.path('/login');
   };
@@ -63,7 +66,7 @@ angular.module('home', ['auth0', 'toastr'])
           });
         }, function (response) {
           $scope.message = response.statusText + "\r\n";
-          if (response.data.errors !== null) {
+          if (response.data && response.data.errors !== null) {
             response.data.errors.forEach(function (error, index) {
               $scope.message += response.data.errors[index].defaultMessage + "\r\n";
             });
@@ -81,7 +84,7 @@ angular.module('home', ['auth0', 'toastr'])
           });
         }, function (response) {
           $scope.message = response.statusText + "\r\n";
-          if (response.data.errors !== null) {
+          if (response.data && response.data.errors !== null) {
             response.data.errors.forEach(function (error, index) {
               $scope.message += response.data.errors[index].defaultMessage + "\r\n";
             });
