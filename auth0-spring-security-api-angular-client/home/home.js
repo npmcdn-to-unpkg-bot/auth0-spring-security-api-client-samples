@@ -1,6 +1,8 @@
 angular.module('home', ['auth0', 'toastr'])
 .controller( 'HomeCtrl', function ($scope, auth, profileResource, toastr, $http, $location, $window, store) {
 
+  $scope.auth = auth;
+
   var fetchProfileList = function (cb) {
     profileResource.query(function (data) {
       $scope.profiles = data;
@@ -36,9 +38,6 @@ angular.module('home', ['auth0', 'toastr'])
     $scope.title = "Edit Profile";
     $scope.listProfiles = false;
   };
-
-  $scope.auth = auth;
-  toastr.success(auth.profile.name + ' you may administer profile information', 'Profile Administration');
 
   $scope.logout = function() {
     var homeButton = angular.element(document.querySelector('#home'));
